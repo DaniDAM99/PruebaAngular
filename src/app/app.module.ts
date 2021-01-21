@@ -13,6 +13,8 @@ import { MultiplicarComponent } from './componentes/multiplicar/multiplicar.comp
 import { CalculadoraComponent } from './componentes/calculadora/calculadora.component';
 import { SaludorutaComponent } from './componentes/saludoruta/saludoruta.component';
 import { TuberiasComponent } from './componentes/tuberias/tuberias.component';
+import { NumerosPipe } from './pipes/numeros.pipe';
+import { DniPipe } from './pipes/dni.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { TuberiasComponent } from './componentes/tuberias/tuberias.component';
     MultiplicarComponent,
     CalculadoraComponent,
     SaludorutaComponent,
-    TuberiasComponent
+    TuberiasComponent,
+    NumerosPipe,
+    DniPipe
   ],
   imports: [
     BrowserModule,

@@ -8,4 +8,9 @@
 <P>Número redondeado: {{numero_pi | number:".3"}}</P>
 <p>Seleccionar elemento de un array: {{preposiciones | slice:2:5}}</p>
 <p>Convertir objeto a formato jsno: {{usuarios | json}}</p>
+<p>El cuadrado del 5: {{5 | numeros:"cuadrado"}}</p>
+<p>La raíz cuadrada de 81 es: {{81 | numeros:"raiz"}}</p>
+<p>Número 5 a letras: {{5 | numeros:"aletras"}}</p>
 
+Número DNI: <input type="number" [(ngModel)]="numeroDni">
+<p>{{numeroDni}}-{{numeroDni | dni}}</p>

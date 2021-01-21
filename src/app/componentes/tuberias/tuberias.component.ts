@@ -18,6 +18,7 @@ export class TuberiasComponent implements OnInit {
     {nombre: "Cristian", apellido: "Muresan", edad: 20},
     {nombre: "Raul", apellido: "Salazar", edad: 24}
   ]
+  numeroDni: number
 
   constructor() { }
 
