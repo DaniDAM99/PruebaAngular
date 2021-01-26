@@ -15,6 +15,7 @@ import { SaludorutaComponent } from './componentes/saludoruta/saludoruta.compone
 import { TuberiasComponent } from './componentes/tuberias/tuberias.component';
 import { NumerosPipe } from './pipes/numeros.pipe';
 import { DniPipe } from './pipes/dni.pipe';
+import { EstructurasComponent } from './componentes/estructuras/estructuras.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { DniPipe } from './pipes/dni.pipe';
     SaludorutaComponent,
     TuberiasComponent,
     NumerosPipe,
-    DniPipe
+    DniPipe,
+    EstructurasComponent
   ],
   imports: [
     BrowserModule,

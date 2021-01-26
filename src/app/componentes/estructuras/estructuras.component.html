@@ -1,0 +1,69 @@
+<h6>Estructuras de control con IfElse</h6>
+<label for="verdad"></label>
+<input type="checkbox" id="verdad" [(ngModel)]="verdad">
+
+<h5> {{ verdad? "es verdad" : "es mentira"}} con op ternario</h5>
+
+<hr>
+
+<h5 *ngIf = "verdad; else elseBlock">Es verdad *ngIf</h5>
+<ng-template #elseBlock><h5>Es mentira *ngIf</h5></ng-template>
+
+<hr>
+
+<!-- if else sugarcandy -->
+<input type="number" id="edad" [(ngModel)]="edad">
+
+<p *ngIf = "edad<18; else adulto">Es menor de 18 años</p>
+<ng-template #adulto>
+    <ng-container *ngIf = "edad<30; else mayor30"><p>Es menor de 30 años</p></ng-container>
+</ng-template>
+<ng-template #mayor30>
+    <ng-container><p>Es mayor de 30 años</p></ng-container>
+</ng-template>
+
+<hr>
+<!-- if else microsintaxis -->
+<ng-template [ngIf]="edad<18" [ngIfElse]="adulto2" ><p>Es menor de 18 años</p></ng-template>
+<ng-template #adulto2 >
+    <ng-template [ngIf]="edad<30" [ngIfElse]="mayor302">
+        <p>Es menor de 30 años</p>
+    </ng-template>
+</ng-template>
+
+<hr>
+
+<ng-template #mayor302 >
+    <p>Es mayor de 30 años</p>
+</ng-template>
+
+<!--Estructura For avanzada-->
+<ul>
+    <li *ngFor= "let numero of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; let i = index; let impar=odd; let primero=first; let ultimo=last; let length=count"
+        [ngClass]="{'text-danger':impar, 'bg-primary':primero}" (click)="muestralog(i,impar,primero,ultimo)">
+        En la posición {{i}} de {{length}}, que es {{impar? "impar" : "par"}} está el número {{numero}} 
+        {{primero? ", que es el primer elemento del array" : ""}} {{ultimo? ", que es el ultimo elemento del array" : ""}}
+    </li>
+</ul>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td scope="row"></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>

@@ -7,6 +7,7 @@ import { MultiplicarComponent } from './componentes/multiplicar/multiplicar.comp
 import { CalculadoraComponent } from './componentes/calculadora/calculadora.component';
 import { SaludorutaComponent } from './componentes/saludoruta/saludoruta.component';
 import { TuberiasComponent } from './componentes/tuberias/tuberias.component';
+import { EstructurasComponent } from './componentes/estructuras/estructuras.component';
 
 const routes: Routes = [
   {path: "", component:HomeComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: "multiplicar/:factor", component:MultiplicarComponent},
   {path: "saludoRutaDinamica/:nombre/:apellido", component:SaludorutaComponent},
   {path: "tuberia", component:TuberiasComponent},
+  {path: "estructuras", component:EstructurasComponent},
   {path: "**", component:HomeComponent}
 ];
 
