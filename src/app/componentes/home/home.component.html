@@ -29,6 +29,11 @@
             </ul>
 
             <p>{{usu.nombre + " " + usu.apellido}}</p>
+
+            <ul>
+                <li *ngFor="let usuario of usuario2" (click)="mostrarUsuario(usuario)">{{usuario.nombre + " " + usuario.apellido}}</li>
+            </ul>
+            <p>{{usu.nombre + " " + usu.apellido}}</p>
         </div>
     </div>
 </div>

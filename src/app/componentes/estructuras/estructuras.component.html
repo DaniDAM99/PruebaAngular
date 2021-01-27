@@ -49,21 +49,29 @@
 <table class="table">
     <thead>
         <tr>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th>Posicion</th>
+            <th>Par/impar</th>
+            <th>Número</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td scope="row"></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td scope="row"></td>
-            <td></td>
-            <td></td>
+        <tr *ngFor = "let numero of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; let i=index; let impar=odd;">
+            <td>{{ i }}</td>
+            <td>{{ impar? "par" : "impar" }}</td>
+            <td>{{ numero }}</td>
         </tr>
     </tbody>
 </table>
+<br/>
+<input type="number" id="num" [(ngModel)]="num1">
+<select id="operacion" [(ngModel)]="operador">
+    <option *ngFor="let operacion of operaciones" value="{{ operacion }}">{{ operacion }}</option>
+</select>
+<input type="number" id="num2" [(ngModel)]="num2">
+<div [ngSwitch]="operador">
+    <p *ngSwitchCase="'+'">{{ num1+num2 }}</p>
+    <p *ngSwitchCase="'-'">{{ num1-num2 }}</p>
+    <p *ngSwitchCase="'*'">{{ num1*num2 }}</p>
+    <p *ngSwitchCase="'/'">{{ num1/num2 }}</p>
+    <p *ngSwitchDefault>Selecciona una operación</p>
+</div>

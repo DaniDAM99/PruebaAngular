@@ -8,9 +8,11 @@ export class DniPipe implements PipeTransform {
   letras: string="TRWAGMYFPDXBNJZSQVHLCKET";
   letra: string = ""
   transform(value: number, ...args: unknown[]): unknown {
-    this.posicion = value % 23;
-    this.letra = this.letras.charAt(this.posicion);
-    return this.letra;
+    if(value > 0 && value > 99999999) {
+        this.posicion = value % 23;
+        this.letra = this.letras.charAt(this.posicion);
+        return this.letra;
+    }
   }
 
 }

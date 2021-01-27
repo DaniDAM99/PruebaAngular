@@ -8,6 +8,7 @@ import { CalculadoraComponent } from './componentes/calculadora/calculadora.comp
 import { SaludorutaComponent } from './componentes/saludoruta/saludoruta.component';
 import { TuberiasComponent } from './componentes/tuberias/tuberias.component';
 import { EstructurasComponent } from './componentes/estructuras/estructuras.component';
+import { FormularioClaseComponent } from './componentes/formulario-clase/formulario-clase.component';
 
 const routes: Routes = [
   {path: "", component:HomeComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: "saludoRutaDinamica/:nombre/:apellido", component:SaludorutaComponent},
   {path: "tuberia", component:TuberiasComponent},
   {path: "estructuras", component:EstructurasComponent},
+  {path: "formulario", component:FormularioClaseComponent},
   {path: "**", component:HomeComponent}
 ];
 
