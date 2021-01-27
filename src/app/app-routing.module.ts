@@ -9,6 +9,8 @@ import { SaludorutaComponent } from './componentes/saludoruta/saludoruta.compone
 import { TuberiasComponent } from './componentes/tuberias/tuberias.component';
 import { EstructurasComponent } from './componentes/estructuras/estructuras.component';
 import { FormularioClaseComponent } from './componentes/formulario-clase/formulario-clase.component';
+import { CrudLocalComponent } from './componentes/crud-local/crud-local.component';
+import { CrudMovilComponent } from './componentes/crud-movil/crud-movil.component';
 
 const routes: Routes = [
   {path: "", component:HomeComponent},
@@ -20,6 +22,8 @@ const routes: Routes = [
   {path: "tuberia", component:TuberiasComponent},
   {path: "estructuras", component:EstructurasComponent},
   {path: "formulario", component:FormularioClaseComponent},
+  {path: "crud", component:CrudLocalComponent},
+  {path: "moviles", component:CrudMovilComponent},
   {path: "**", component:HomeComponent}
 ];
 

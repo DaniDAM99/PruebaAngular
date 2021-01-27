@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    alert("Adios")
+    //alert("Adios")
   }
 
   num1:number = 0
@@ -31,8 +31,11 @@ export class HomeComponent implements OnInit, OnDestroy {
                         {nombre:"Jorge", apellido:"Casas"}]
                         
   usu = {nombre:"",apellido:""}
+
   mostrarUsuario(usuario) {
     this.usu = usuario
   }
+
+
 
 }

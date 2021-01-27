@@ -1,5 +1,7 @@
-<p>Ésta es ta tabla de {{ factor }}</p>
+<main>
+    <p>Ésta es la tabla de {{ factor }}</p>
 
-<ul (click)="volverACalculadora()">
-    <li *ngFor="let resultado of tabla; let num = index"> {{ factor }} * {{ num }} = {{ resultado }}</li>
-</ul>
+    <ul (click)="volverACalculadora()">
+        <li *ngFor="let resultado of tabla; let num = index"> {{ factor }} * {{ num }} = {{ resultado }}</li>
+    </ul>
+</main>

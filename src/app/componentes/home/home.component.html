@@ -1,39 +1,41 @@
-<div class="jumbotron jumbotron-fluid">
-    <div class="container">
-        <h1 class="display-3">Fluid jumbo heading</h1>
-        <p class="lead">Jumbo helper text</p>
-        <hr class="my-2">
-        <p>More info</p>
-        <p class="lead">
-            <a class="btn btn-primary btn-lg" routerLink="/about" role="button">About</a>
-        </p>
+<main>
+    <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <input type="text" [(ngModel)]="variable">
-            <h3>{{variable}}</h3>
+            <h1 class="display-3">Fluid jumbo heading</h1>
+            <p class="lead">Jumbo helper text</p>
+            <hr class="my-2">
+            <p>More info</p>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" routerLink="/about" role="button">About</a>
+            </p>
+            <div class="container">
+                <input type="text" [(ngModel)]="variable">
+                <h3>{{variable}}</h3>
 
-            <label>Numero 1</label><br>
-            <input type="number" [(ngModel)]="num1"><br>
+                <label>Numero 1</label><br>
+                <input type="number" [(ngModel)]="num1"><br>
 
-            <label>Numero 2</label><br>
-            <input type="number" [(ngModel)]="num2"><br>
-            <p *ngIf="num1 == 0">El número 1 es un 0</p>
-            <p *ngIf="num1 != 0">El número 1 no es un 0</p>
-            <p>El resultado es : {{num1 + num2}}</p>
+                <label>Numero 2</label><br>
+                <input type="number" [(ngModel)]="num2"><br>
+                <p *ngIf="num1 == 0">El número 1 es un 0</p>
+                <p *ngIf="num1 != 0">El número 1 no es un 0</p>
+                <p>El resultado es : {{num1 + num2}}</p>
 
-            <ul>
-                <li *ngFor="let letra of letras">{{letra}}</li>
-            </ul>
+                <ul>
+                    <li *ngFor="let letra of letras">{{letra}}</li>
+                </ul>
 
-            <ul>
-                <li *ngFor="let usuario of usuarios" (click)="mostrarUsuario(usuario)">{{usuario.nombre + " " + usuario.apellido}}</li>
-            </ul>
+                <ul>
+                    <li *ngFor="let usuario of usuarios" (click)="mostrarUsuario(usuario)">{{usuario.nombre + " " + usuario.apellido}}</li>
+                </ul>
 
-            <p>{{usu.nombre + " " + usu.apellido}}</p>
+                <p>{{usu.nombre + " " + usu.apellido}}</p>
 
-            <ul>
-                <li *ngFor="let usuario of usuario2" (click)="mostrarUsuario(usuario)">{{usuario.nombre + " " + usuario.apellido}}</li>
-            </ul>
-            <p>{{usu.nombre + " " + usu.apellido}}</p>
+                <ul>
+                    <li *ngFor="let usuario of usuario2" (click)="mostrarUsuario(usuario)">{{usuario.nombre + " " + usuario.apellido}}</li>
+                </ul>
+                <p>{{usu.nombre + " " + usu.apellido}}</p>
+            </div>
         </div>
     </div>
-</div>
+</main>

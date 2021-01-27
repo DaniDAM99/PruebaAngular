@@ -1,0 +1,39 @@
+<main>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="pointer" *ngFor="let m of moviles" (click)="movilSeleccionado = m">
+                <td>{{ m.id }}</td>
+                <td>{{ m.marca }}</td>
+                <td>{{ m.modelo }}</td>
+                <td>{{ m.precio }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h6>Insertar movil</h6>
+    <div class="input-group input-group-sm">
+        <input type="text" name="marca" class="form-control" placeholder="Marca" [(ngModel)]="movil.marca">
+        <input type="text" name="modelo" class="form-control" placeholder="Modelo" [(ngModel)]="movil.modelo">
+        <input type="number" step="any" class="form-control" placeholder="precio" name="precio" [(ngModel)]="movil.precio">
+        <input type="button" value="Insertar movil" class="btn btn-sm btn-outline-primary" (click)="insertar()">
+    </div>
+
+    <br/>
+    <h6>Movil seleccionado</h6>
+
+    <div class="input-group input-group-sm">
+        <input type="text" name="marca" class="form-control" [(ngModel)]="movilSeleccionado.marca">
+        <input type="text" name="modelo" class="form-control" [(ngModel)]="movilSeleccionado.modelo">
+        <input type="number" step="any" class="form-control" name="precio" [(ngModel)]="movilSeleccionado.precio">
+        <input type="button" class="btn btn-sm btn-outline-secondary" value="Actualizar movil" (click)="editar()">
+        <input type="button" class="btn btn-sm btn-outline-danger" value="Borrar movil" (click)="borrar()">
+    </div>
+</main>

@@ -1,13 +1,15 @@
-Nombre: <br/>
-<input type="text" name="" id="" [(ngModel)]="user.nombre">
-<br/>
-Apellidos: <br/>
-<input type="text" name="" id="" [(ngModel)]="user.apellido">
-<br/>
-Edad: <br/>
-<input type="number" name="" id="" [(ngModel)]="user.edad">
-<button (click)="insertar()">Insertar</button>
-<ul>
-    <li *ngFor="let usu of users" (click)="mostrar(usu)">{{ usu.nombre }} {{ usu.apellido }} Edad: {{ usu.edad }}</li>
-</ul>
-<p>{{ usu.nombre }} {{ usu.apellido }} {{ usu.edad }}</p>
+<main>
+    Nombre: <br/>
+    <input type="text" name="" id="" [(ngModel)]="user.nombre">
+    <br/>
+    Apellidos: <br/>
+    <input type="text" name="" id="" [(ngModel)]="user.apellido">
+    <br/>
+    Edad: <br/>
+    <input type="number" name="" id="" [(ngModel)]="user.edad">
+    <button (click)="insertar()">Insertar</button>
+    <ul>
+        <li *ngFor="let usu of users" (click)="mostrar(usu)">{{ usu.nombre }} {{ usu.apellido }} Edad: {{ usu.edad }}</li>
+    </ul>
+    <p>{{ usu.nombre }} {{ usu.apellido }} {{ usu.edad }}</p>
+</main>
