@@ -1,17 +1,17 @@
 <main>
-<p>Convertir a mayúsculas: {{usuario | uppercase}}</p>
-<p>Convertir a minúscula: {{mes | lowercase}}</p>
-<p>La primera letra de cada palabra en mayúscula {{texto | titlecase}}</p>
-<p>Fecha: {{fecha | date}}</p>
-<p>fecha editada: {{fecha | date:"dd/MM/yyyy"}}</p>
-<p>Hora: {{fecha | date:"hh:mm:ss"}}</p>
-<p>Dinero: {{dinero | currency:"EUR"}}</p>
-<P>Número redondeado: {{numero_pi | number:".3"}}</P>
-<p>Seleccionar elemento de un array: {{preposiciones | slice:2:5}}</p>
-<p>Convertir objeto a formato jsno: {{usuarios | json}}</p>
-<p>El cuadrado del 5: {{5 | numeros:"cuadrado"}}</p>
-<p>La raíz cuadrada de 81 es: {{81 | numeros:"raiz"}}</p>
-<p>Número 5 a letras: {{5 | numeros:"aletras"}}</p>
+    <p><b>Convertir a mayúsculas:</b> {{usuario | uppercase}}</p>
+    <p><b>Convertir a minúscula:</b> {{mes | lowercase}}</p>
+    <p><b>La primera letra de cada palabra en mayúscula</b> {{texto | titlecase}}</p>
+    <p><b>Fecha:</b> {{fecha | date}}</p>
+    <p><b>fecha editada</b>: {{fecha | date:"dd/MM/yyyy"}}</p>
+    <p><b>Hora:</b> {{fecha | date:"hh:mm:ss"}}</p>
+    <p><b>Dinero:</b> {{dinero | currency:"EUR"}}</p>
+    <P><b>Número redondeado:</b> {{numero_pi | number:".3"}}</P>
+    <p><b>Seleccionar elemento de un array:</b> {{preposiciones | slice:2:5}}</p>
+    <p><b>Convertir objeto a formato json:</b> {{usuarios | json}}</p>
+    <p><b>El cuadrado del 5:</b> {{5 | numeros:"cuadrado"}}</p>
+    <p><b>La raíz cuadrada de 81 es:</b> {{81 | numeros:"raiz"}}</p>
+    <p><b>Número 5 a letras:</b> {{5 | numeros:"aletras"}}</p>
 
 Número DNI: <input type="number" [(ngModel)]="numeroDni">
 <p>{{numeroDni}}-{{numeroDni | dni}}</p>

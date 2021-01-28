@@ -1,22 +1,18 @@
 <main>
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="display-3">Fluid jumbo heading</h1>
-            <p class="lead">Jumbo helper text</p>
-            <hr class="my-2">
-            <p>More info</p>
-            <p class="lead">
-                <a class="btn btn-primary btn-lg" routerLink="/about" role="button">About</a>
-            </p>
             <div class="container">
-                <input type="text" [(ngModel)]="variable">
+                <a class="btn btn-primary " routerLink="/about" role="button">About</a>
+                <br>
+                <p></p>
+                <input type="text" class="form-control form-control-sm" [(ngModel)]="variable">
                 <h3>{{variable}}</h3>
 
                 <label>Numero 1</label><br>
-                <input type="number" [(ngModel)]="num1"><br>
+                <input type="number" class="form-control form-control-sm" [(ngModel)]="num1"><br>
 
                 <label>Numero 2</label><br>
-                <input type="number" [(ngModel)]="num2"><br>
+                <input type="number" class="form-control form-control-sm" [(ngModel)]="num2"><br>
                 <p *ngIf="num1 == 0">El número 1 es un 0</p>
                 <p *ngIf="num1 != 0">El número 1 no es un 0</p>
                 <p>El resultado es : {{num1 + num2}}</p>

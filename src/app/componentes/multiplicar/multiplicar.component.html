@@ -1,7 +1,7 @@
 <main>
     <p>Ésta es la tabla de {{ factor }}</p>
 
-    <ul (click)="volverACalculadora()">
+    <ul class="tabla_multiplicar" (click)="volverACalculadora()">
         <li *ngFor="let resultado of tabla; let num = index"> {{ factor }} * {{ num }} = {{ resultado }}</li>
     </ul>
 </main>

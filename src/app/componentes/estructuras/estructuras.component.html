@@ -42,7 +42,7 @@
     <ul>
         <li *ngFor= "let numero of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; let i = index; let impar=odd; let primero=first; let ultimo=last; let length=count"
             [ngClass]="{'text-danger':impar, 'bg-primary':primero}" (click)="muestralog(i,impar,primero,ultimo)">
-            En la posición {{i}} de {{length}}, que es {{impar? "impar" : "par"}} está el número {{numero}} 
+            En la posición {{i}} de {{length}}, que es {{impar? "par" : "impar"}} está el número {{numero}} 
             {{primero? ", que es el primer elemento del array" : ""}} {{ultimo? ", que es el ultimo elemento del array" : ""}}
         </li>
     </ul>

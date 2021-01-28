@@ -1,9 +1,10 @@
 <main>
-    <app-generarloteria #numero1></app-generarloteria>
-    <app-generarloteria #numero2></app-generarloteria>
+    <div>
+        <app-generarloteria #numero1></app-generarloteria>
+        <app-generarloteria #numero2></app-generarloteria>
 
+        <button (click)="numero1.obten_aleatorio();numero2.obten_aleatorio()">Dame un numero</button>
 
-    <button (click)="numero1.obten_aleatorio();numero2.obten_aleatorio()">Dame un numero</button>
-
-    <p *ngIf="numero1.digito==numero2.digito">SON IGUALES</p>
+        <p *ngIf="numero1.digito==numero2.digito">SON IGUALES</p>
+    </div>
 </main>

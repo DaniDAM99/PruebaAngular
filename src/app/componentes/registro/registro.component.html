@@ -1,0 +1,47 @@
+<main>
+    <div class="formulario_registro">
+        <form [formGroup]="formRegister" (submit)="evaluaForm()">
+            <input type="text" class="form-control" placeholder="Nombre" formControlName="nombre" ><br/>
+            <input type="text" class="form-control" placeholder="Apellido" formControlName="apellidos" ><br/>
+            <input type="text" class="form-control" placeholder="Contraseña" formControlName="password" ><br/>
+            <input type="text" class="form-control" placeholder="Email" formControlName="email" ><br/>
+            <input type="text" class="form-control" placeholder="DNI" formControlName="dni" ><br/>
+            <input type="tel" class="form-control" placeholder="Telefono" formControlName="telefono" ><br/>
+            <input type="submit" class="btn btn-primary" [disabled]="!formRegister.valid" value="Registrar">
+        </form>
+        <div class="err_alert">
+            <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="alert alert-danger">
+                <p *ngIf="nombre.errors.required">El nombre es obligatorio</p>
+                <p *ngIf="nombre.errors.minlength">El nombre tiene que tener al menos 3 caracteres</p>
+            </div>
+            <div *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)" class="alert alert-danger">
+                <p *ngIf="apellido.errors.required">El apellido es obligatorio</p>
+            </div>
+            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                <p *ngIf="password.errors.required">La contraseña es obligatoria</p>
+                <p *ngIf="password.errors.minlength">La contraseña tiene que tener al menos 8 caracteres</p>
+            </div>
+            <div *ngIf="email.invalid && email.touched" class="alert alert-danger">
+                <p *ngIf="email.errors.required">El email es obligatorio</p>
+                <p *ngIf="email.errors.email">El formato del email es inválido</p>
+            </div>
+            <div *ngIf="dni.invalid && dni.touched" class="alert alert-danger">
+                <p *ngIf="dni.errors.required">El DNI es obligatorio</p>
+            </div>
+            <div *ngIf="telefono.invalid && telefono.touched" class="alert alert-danger">
+                
+            </div>
+        </div>
+    </div>
+    <!--
+    <form [formGroup]="formRegister2" (submit)="evaluaForm()">
+        <input type="text" placeholder="Nombre" id="nombre" formControlName="nombre" ><br/>
+        <input type="text" placeholder="Apellidos" formControlName="apellidos" ><br/>
+        <input type="text" placeholder="Contraseña" formControlName="password" ><br/>
+        <input type="text" placeholder="Email" formControlName="email" ><br/>
+        <input type="text" placeholder="DNI" formControlName="dni" ><br/>
+        <input type="tel" placeholder="Telefono" formControlName="telefono" ><br/>
+        <input type="submit" [disabled]="!formRegister.valid" value="Registrar">
+    </form>
+-->
+</main>
