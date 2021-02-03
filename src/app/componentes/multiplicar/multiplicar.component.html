@@ -1,7 +1,10 @@
 <main>
-    <p>Ésta es la tabla de {{ factor }}</p>
-
-    <ul class="tabla_multiplicar" (click)="volverACalculadora()">
-        <li *ngFor="let resultado of tabla; let num = index"> {{ factor }} * {{ num }} = {{ resultado }}</li>
-    </ul>
+    <div class="card pointer text-center" style="width: 18rem; margin: 0 auto;">
+        <div class="card-header">
+            Ésta es la tabla de {{ factor }}
+        </div>
+        <ul class="list-group list-group-flush" (click)="volverACalculadora()">
+            <li class="list-group-item" *ngFor="let resultado of tabla; let num = index"> {{ factor }} * {{ num }} = {{ resultado }}</li>
+        </ul>
+    </div>
 </main>

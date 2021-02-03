@@ -1,10 +1,11 @@
-<main>
-    <div>
-        <app-generarloteria #numero1></app-generarloteria>
-        <app-generarloteria #numero2></app-generarloteria>
-
-        <button (click)="numero1.obten_aleatorio();numero2.obten_aleatorio()">Dame un numero</button>
-
-        <p *ngIf="numero1.digito==numero2.digito">SON IGUALES</p>
+<div class="container">
+    <div class="border border-success rounded-circle text-center m-3 align-middle" style="width: 50px; height: 50px; vertical-align: middle;">
+        <p><app-generarloteria #numero1></app-generarloteria></p>
     </div>
-</main>
+    <div class="border border-success rounded-circle text-center m-3" style="width: 50px; height: 50px; vertical-align: middle;">
+        <p><app-generarloteria #numero2></app-generarloteria></p>
+    </div>
+    <button class="btn btn-outline-primary" (click)="numero1.obten_aleatorio();numero2.obten_aleatorio(); boton_pulsado=true;">Dame un numero</button>
+
+    <p class="alert alert-success my-3" *ngIf="boton_pulsado && numero1.digito==numero2.digito">Has ganado!</p>
+</div>

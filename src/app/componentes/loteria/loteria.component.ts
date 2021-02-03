@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class LoteriaComponent implements OnInit {
 
   constructor() { }
-
+  boton_pulsado: boolean = false
   ngOnInit(): void {
   }
 

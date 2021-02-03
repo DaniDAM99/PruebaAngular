@@ -1,8 +1,7 @@
-<main>
-    <input type="number" [(ngModel)]="num_entrada">
-
-    <br/>
-    <a routerLink="/multiplicar/{{ num_entrada }}">Mostrar tabla a través del RouterLink</a>
-    <br/>
-    <button (click)="navegarHacia(num_entrada)">Mostrar tabla a través del módulo Router</button>
-</main>
+<div class="container">
+  <div class="input-group m-5 input-group-sm">
+    <input placeholder="Número" class="input-group" type="number" [(ngModel)]="num_entrada">
+    <a class="btn btn-outline-primary" routerLink="/multiplicar/{{ num_entrada }}">Mostrar tabla a través del RouterLink</a>
+    <button class="btn btn-outline-primary" (click)="navegarHacia(num_entrada)">Mostrar tabla a través del módulo Router</button>
+  </div>
+</div>
