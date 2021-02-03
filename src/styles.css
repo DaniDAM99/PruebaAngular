@@ -3,3 +3,7 @@ main {
     width: 75%;
     margin: auto;
 }
+
+.pointer {
+    cursor: pointer;
+}

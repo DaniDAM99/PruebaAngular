@@ -20,6 +20,9 @@
 
     <h6>Insertar movil</h6>
     <div class="input-group input-group-sm">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Movil</span>
+        </div>
         <input type="text" name="marca" class="form-control" placeholder="Marca" [(ngModel)]="movil.marca">
         <input type="text" name="modelo" class="form-control" placeholder="Modelo" [(ngModel)]="movil.modelo">
         <input type="number" step="any" class="form-control" placeholder="precio" name="precio" [(ngModel)]="movil.precio">
@@ -30,9 +33,13 @@
     <h6>Movil seleccionado</h6>
 
     <div class="input-group input-group-sm">
-        <input type="text" name="marca" class="form-control" [(ngModel)]="movilSeleccionado.marca">
-        <input type="text" name="modelo" class="form-control" [(ngModel)]="movilSeleccionado.modelo">
-        <input type="number" step="any" class="form-control" name="precio" [(ngModel)]="movilSeleccionado.precio">
+        
+        <div class="input-group-prepend">
+            <span class="input-group-text">Movil</span>
+        </div>
+        <input type="text" name="marca" placeholder="Marca" class="form-control" [(ngModel)]="movilSeleccionado.marca">
+        <input type="text" name="modelo" placeholder="Modelo" class="form-control" [(ngModel)]="movilSeleccionado.modelo">
+        <input type="number" step="any" placeholder="precio" class="form-control" name="precio" [(ngModel)]="movilSeleccionado.precio">
         <input type="button" class="btn btn-sm btn-outline-secondary" value="Actualizar movil" (click)="editar()">
         <input type="button" class="btn btn-sm btn-outline-danger" value="Borrar movil" (click)="borrar()">
     </div>

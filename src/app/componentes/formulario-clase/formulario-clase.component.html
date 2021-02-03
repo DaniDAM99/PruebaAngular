@@ -1,15 +1,24 @@
-<main>
-    Nombre: <br/>
-    <input type="text" name="" id="" [(ngModel)]="user.nombre">
-    <br/>
-    Apellidos: <br/>
-    <input type="text" name="" id="" [(ngModel)]="user.apellido">
-    <br/>
-    Edad: <br/>
-    <input type="number" name="" id="" [(ngModel)]="user.edad">
-    <button (click)="insertar()">Insertar</button>
+<div class="container">
+    
+    <div class="input-group m-3 px-5 input-group-sm">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Usuario</span>
+        </div>
+        <input class="form-control" placeholder="Nombre" type="text" name="" id="" [(ngModel)]="user.nombre">
+        <input class="form-control" placeholder="Apellido" type="text" name="" id="" [(ngModel)]="user.apellido">
+      
+    </div>
+    <div class="input-group m-3 px-5 input-group-sm">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Edad:</span>
+        </div>
+        <input class="form-control" type="number" name="" id="" [(ngModel)]="user.edad">
+        <button (click)="insertar()">Insertar</button>
+    </div>
     <ul>
-        <li *ngFor="let usu of users" (click)="mostrar(usu)">{{ usu.nombre }} {{ usu.apellido }} Edad: {{ usu.edad }}</li>
+        <li class="list-group-item list-group-item-action pointer" *ngFor="let usu of users" (click)="mostrar(usu)">{{ usu.nombre }} {{ usu.apellido }} Edad: {{ usu.edad }}</li>
     </ul>
+
     <p>{{ usu.nombre }} {{ usu.apellido }} {{ usu.edad }}</p>
-</main>
+
+</div>

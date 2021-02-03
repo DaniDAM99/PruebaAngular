@@ -1,0 +1,46 @@
+<div class="container">
+    
+    <div class="container p-3 m-2">
+        <div *ngIf='success_alert' class="alert alert-success" role="alert">
+            Nota creada correctamente
+        </div>
+        <div *ngIf='error_alert' class="alert alert-success" role="alert">
+            Error al crear la nota
+        </div>
+        <form class="input-group" [formGroup]='formNuevo' (ngSubmit)='crearNota(formNuevo.value)'>
+            <div class="input-group-prepend">
+                <span class="input-group-text">Nota</span>
+            </div>
+            <input class="form-control" type="text" formControlName="titulo" placeholder="Título">
+            <input class="form-control" type="text" formControlName="contenido" placeholder="Contenido">
+            <button type="submit" *ngIf='!formNuevo.value.id; else editar' class="btn btn-outline-primary" [disabled]='formNuevo.invalid'>Insertar nota</button>
+            <ng-template #editar>
+                <button type='button' class="btn btn-outline-danger"(click)='eliminarNota()' [disabled]='!formNuevo.value.id'>Eliminar nota</button>
+                <button type='button' class="btn btn-outline-warning"(click)='editarNota()' [disabled]='formNuevo.invalid'>Editar nota</button>
+                <button type='button' class="btn btn-outline-secondary" (click)='formNuevo.reset()'>Cancelar</button>
+            </ng-template>
+        </form>
+    </div>
+    
+    <div class="container p-3 m-2">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Nota</span>
+            </div>
+            <input class="form-control" type="text" [(ngModel)]="notaNueva.titulo" placeholder="Título">
+            <input class="form-control" type="text" [(ngModel)]="notaNueva.contenido" placeholder="Contenido">
+            <button class="btn btn-outline-primary" (click)="crearNota(notaNueva)">Insertar nota</button>
+        </div>
+    </div>
+
+    <div class="container p-3 m-2">
+        <h3>Notas</h3>
+        <div class="input-group">
+            <input (input)="buscarConRetraso()" style="display: inline;" class="form-control-md ml-4 mb-3" type="text" [(ngModel)]='busqueda' placeholder="Búsqueda">
+        </div>
+
+        <ul>
+            <li class="list-group-item list-group-item-action pointer" *ngFor="let nota of notas" (click)="formNuevo.patchValue(nota)">{{nota.titulo}}: {{nota.contenido}}</li>
+        </ul>
+    </div>
+</div>

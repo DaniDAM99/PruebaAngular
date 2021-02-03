@@ -6,17 +6,27 @@ export function telefonoValido(): ValidatorFn {
         if(numTelefono>600000000 && numTelefono<999999999) {
             return null
         }
-        return {telefono: "invalido"}
+        return {telefono: "inválido"}
     }
 }
 
 export function dniValido(): ValidatorFn {
     return (dni: AbstractControl): {[key:string]:any} | null=>{
-        const dni_comporbar = dni.value
-        const dni_regex = '/^(\d{8})([A-Z])$/'
-        if(dni_comporbar.match(dni_regex)) {
+        const letras = "TRWAGMYFPDXBNJZSQVHLCKET"
+        const numero = dni.value.match(/\d+/g)
+        let letra = dni.value.match(/[a-z]/gi)
+        const letra_corracta = letras[numero%23]
+
+        if(letra == null) {
+            return {dni: "Falta la letra"}
+        }
+        else {
+            letra = letra.join().toUperCase()
+        }
+
+        if(letra_corracta == letra) {
             return null
         }
-        return {dni: "invalido"}
+        return {dni: "inválido"}
     }
 }

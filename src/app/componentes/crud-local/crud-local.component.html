@@ -18,6 +18,9 @@
 
     <h6>Insertar nota</h6>
     <div class="input-group input-group-sm">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Nota</span>
+        </div>
         <input type="text" placeholder="Título" class="form-control" name="titulo" [(ngModel)]="nota.titulo">
         <input type="text" placeholder="Contenido" class="form-control" name="contenido" [(ngModel)]="nota.contenido">
         <input type="button" class="btn btn-sm btn-outline-primary" value="Insertar nota" (click)="insertar()">
@@ -25,8 +28,11 @@
 
     <h6>Nota seleccionada</h6>
     <div class="input-group input-group-sm">
-        <input type="text" class="form-control" [(ngModel)]="notaSeleccionada.titulo">
-        <input type="text" class="form-control" [(ngModel)]="notaSeleccionada.contenido">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Nota</span>
+        </div>
+        <input type="text" placeholder="Título" class="form-control" [(ngModel)]="notaSeleccionada.titulo">
+        <input type="text" placeholder="Contenido" class="form-control" [(ngModel)]="notaSeleccionada.contenido">
         <input type="button" class="btn btn-sm btn-outline-secondary" value="Actualizar nota" (click)="actualizar()">
         <input type="button" class="btn btn-sm btn-outline-danger" value="Borrar nota" (click)="borrar()">
     </div>
