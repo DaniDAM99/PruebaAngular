@@ -1,0 +1,19 @@
+<div class="container mt-5">
+    <form [formGroup]="formLogin" (submit)="login()">
+        <div class="input-group mb-2">
+            <div class="input-group-prepend" style="width: 170px;">
+                <span class="input-group-text" style="width: 100%;">Email:</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Email" formControlName="email" >
+        </div>
+
+        <div class="input-group mb-2">
+            <div class="input-group-prepend" style="width: 170px;">
+                <span class="input-group-text" style="width: 100%;">Contrseña:</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Contraseña" formControlName="password" >
+        </div>
+        
+        <input type="submit" class="btn btn-primary"  value="login">
+    </form>
+</div>
