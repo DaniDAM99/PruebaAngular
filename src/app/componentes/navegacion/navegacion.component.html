@@ -36,15 +36,22 @@
             </li>
         </ul>
         <ul class="navbar-nav mt-2 mt-lg-0">
-            <li class="nav-item">
-                <a class="nav-link" routerLink = "/registro">Registro</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink = "/login">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink = "/perfil">Perfil</a>
-            </li>
+            <ng-template [ngIf]='!isLogged()' [ngIfElse]='salir'>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink = "/registro">Registro</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink = "/login">Login</a>
+                </li>
+            </ng-template>
+            <ng-template #salir>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink = "/perfil">Perfil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="doLogout()" routerLink='.'>Logout</a>
+                </li>
+            </ng-template>
         </ul>
     </div>
 </nav>

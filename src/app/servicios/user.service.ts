@@ -23,4 +23,12 @@ export class UserService {
   guardarToken(token: string) {
     localStorage.setItem('user_token', JSON.stringify(token))
   }
+
+  isLogged(): boolean {
+    return !!localStorage.getItem('user_token')
+  }
+
+  logOut(): void {
+    localStorage.removeItem('user_token')
+  }
 }

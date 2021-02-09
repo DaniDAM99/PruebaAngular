@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { telefonoValido, dniValido } from 'src/app/validaciones/validaciones';
 import { UserService } from 'src/app/servicios/user.service';
 import { registerLocaleData } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -20,9 +21,12 @@ export class RegisterComponent implements OnInit {
     dni:['', [Validators.required/*,dniValido()*/]],
   })
 
-  constructor(private fb:FormBuilder, private servicioUsuario:UserService) { }
+  constructor(private fb:FormBuilder, private servicioUsuario:UserService, private irHacia:Router) { }
 
   ngOnInit(): void {
+    if(this.servicioUsuario.isLogged()) {
+      this.irHacia.navigate(['/perfil'])
+    }
   }
 
   submit() {
@@ -31,6 +35,7 @@ export class RegisterComponent implements OnInit {
         respuesta => {
           console.log(respuesta)
           this.servicioUsuario.guardarToken(respuesta)
+          this.irHacia.navigate(['/perfil'])
         },
         error => console.log(error)
       )
