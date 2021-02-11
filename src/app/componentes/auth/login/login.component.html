@@ -1,4 +1,8 @@
 <div class="container mt-5">
+    
+    <div class="alert alert-danger" *ngIf='mensaje' role="alert">
+        {{ mensaje }}
+    </div>
     <form [formGroup]="formLogin" (submit)="login()">
         <div class="input-group mb-2">
             <div class="input-group-prepend" style="width: 170px;">

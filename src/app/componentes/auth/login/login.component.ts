@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/servicios/user.service';
 
 @Component({
@@ -12,7 +13,9 @@ export class LoginComponent implements OnInit {
     email:[''],
     password:['']
   })
-  constructor(private fb:FormBuilder, private servicioUsuario:UserService) { }
+  mensaje: string = ""
+
+  constructor(private fb:FormBuilder, private servicioUsuario:UserService, private irHacia:Router) { }
 
   ngOnInit(): void {
   }
@@ -22,8 +25,12 @@ export class LoginComponent implements OnInit {
       response => {
         console.log(response)
         this.servicioUsuario.guardarToken(response)
+        this.irHacia.navigate(['/perfil'])
       },
-      error => console.log(error)
+      error => {
+        console.log(error)
+        this.mensaje = error.error.error
+      }
     )
   }
   

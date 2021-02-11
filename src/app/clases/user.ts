@@ -6,6 +6,7 @@ export interface User {
     email?: string
     telefono?: number
     dni?: string
+    imgSrc?: string
 }
 
 export interface accesoUsuario {

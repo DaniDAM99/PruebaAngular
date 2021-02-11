@@ -1,1 +1,111 @@
-<p>perfil works!</p>
+<div class="container">
+    
+    <div class="card" style="width: 70rem; margin: 15px auto;">
+        <div class="card-header"><h3 class="card-title ml-2">Perfil usuario</h3></div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <img src='{{perfil.imgSrc}}'>
+            </li>
+            <li class="list-group-item">
+                <div class="input-group input-group-sm">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" style="width: 80px;">Nombre:</span>
+                    </div>
+                    <input type="text" readonly class="form-control" value="{{ perfil.nombre }}">
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="input-group input-group-sm">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" style="width: 80px;">Apellidos:</span>
+                    </div>
+                    <input type="text" readonly class="form-control" value="{{ perfil.apellidos }}">
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="input-group input-group-sm">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" style="width: 80px;">Email:</span>
+                    </div>
+                    <input type="text" readonly class="form-control" value="{{ perfil.email }}">
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="input-group input-group-sm">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" style="width: 80px;">DNI:</span>
+                    </div>
+                    <input type="text" readonly class="form-control" value="{{ perfil.dni }}">
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="input-group input-group-sm">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" style="width: 80px;">Teléfono:</span>
+                    </div>
+                    <input type="text" readonly class="form-control" value="{{ perfil.telefono }}">
+                </div>
+            </li>
+            <li class="list-group-item">
+                <button class="btn btn-outline-primary mr-2" (click)='mostrarEditar=!mostrarEditar; mostrarEliminar=false;'>Editar</button>
+                <button class="btn btn-outline-danger" (click)='mostrarEliminar=!mostrarEliminar; mostrarEditar=false'>Eliminar</button>
+            </li>
+        </ul>
+    </div>
+
+    <div *ngIf='mostrarEditar' style="width: 70rem;" class="border rounded p-2">
+        <form [formGroup]="formPerfil" (submit)="editarPerfil()">
+            <div class="input-group mb-2">
+                <div class="input-group-prepend" style="width: 170px;">
+                    <span class="input-group-text" style="width: 100%;">Nombre:</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Nombre" formControlName="nombre" >
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend" style="width: 170px;">
+                    <span class="input-group-text" style="width: 100%;">Apellidos:</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Apellidos" formControlName="apellidos" >
+            </div>
+    
+            <div class="input-group mb-2">
+                <div class="input-group-prepend" style="width: 170px;">
+                    <span class="input-group-text" style="width: 100%;">Contraseña:</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Contraseña" formControlName="password" ><br/>
+            </div>
+    
+            <div class="input-group mb-2">
+                <div class="input-group-prepend" style="width: 170px;">
+                    <span class="input-group-text" style="width: 100%;">Email:</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Email" formControlName="email" ><br/>
+            </div>
+    
+            <div class="input-group mb-2">
+                <div class="input-group-prepend" style="width: 170px;">
+                    <span class="input-group-text" style="width: 100%;">Teléfono:</span>
+                </div>
+                <input type="tel" class="form-control" placeholder="Telefono" formControlName="telefono" ><br/>
+            </div>
+            <input type="submit" class="btn btn-primary m-1"  value="Guardar cambios">
+            <button class="btn btn-outline-secondary" (click)='mostrarEditar=!mostrarEditar'>Cancelar</button>
+        </form>
+    </div>
+    <div *ngIf='mostrarEliminar' class="border rounded p-2" style="width: 70rem;">
+        <p>Introduzca el email para confirmar el borrado</p>
+        <div class="input-group mb-2">
+            <div class="input-group-prepend" style="width: 170px;">
+                <span class="input-group-text" style="width: 100%;">Email:</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Email" [(ngModel)]='inputBorrar'><br/>
+        </div>
+        <button class="btn btn-danger m-1" (click)='eliminarUsuario()' [disabled]='inputBorrar != perfil.email'>Confirmar borrado</button>
+        <button class="btn btn-outline-secondary" (click)='mostrarEliminar=!mostrarEliminar'>Cancelar</button>
+    </div>
+
+    <form [formGroup]='formImagen' (ngSubmit)='subirImagen()'>
+        <input type="file" formControlName='imagen' (change)='cambiaImagen($event)'>
+        <input type="submit" value="Subir imagen de perfil">
+    </form>
+</div>

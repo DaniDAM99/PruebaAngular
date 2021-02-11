@@ -7,21 +7,15 @@ import { UserService } from '../servicios/user.service';
   providedIn: 'root'
 })
 
-
 export class UserRouterGuard implements CanActivate {
-
-  constructor(private servicioUsuario:UserService, private irHacia:Router){}
-
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      if(this.servicioUsuario.isLogged()) {
-        return true;
-      }
-      else {
+      if(this.servicioUsuario.isLogged()) return true;
+      else{
         this.irHacia.navigate(['/login'])
         return false
       }
   }
-  
+  constructor(private servicioUsuario:UserService, private irHacia:Router){ }
 }
