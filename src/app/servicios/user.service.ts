@@ -37,6 +37,10 @@ export class UserService {
     return this.http.post(url+'image/', entrada)
   }
 
+  obtenerUsuarios(): Observable<any> {
+    return this.http.get(url + "list/")
+  }
+
   guardarToken(token: string) {
     localStorage.setItem('user_token', token)
   }

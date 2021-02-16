@@ -39,7 +39,7 @@
             <input (input)="buscarConRetraso()" style="display: inline;" class="form-control-md ml-4 mb-3" type="text" [(ngModel)]='busqueda' placeholder="Búsqueda">
         </div>
         <ul>
-            <li class="list-group-item border mb-1"  *ngFor="let nota of notas" (click)="nota.idUser ? formNuevo.patchValue(nota) : formNuevo.reset()" [ngClass]='{"list-group-item-action border-warning pointer":nota.idUser}'>{{nota.titulo}}: {{nota.contenido}}</li>
+            <li class="list-group-item border mb-1"  *ngFor="let nota of notas" (click)="nota.idUser ? formNuevo.patchValue(nota) : formNuevo.reset()" [ngClass]='{"list-group-item-action border-info pointer":nota.idUser}'>{{nota.titulo}}: {{nota.contenido}}</li>
         </ul>
     </div>
 </div>

@@ -1,0 +1,16 @@
+<div class="container">
+    <h4 class="mb-4 mt-3">Usuarios</h4>
+    <table class="table">
+        <tr>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+        </tr>
+        <tr *ngFor="let user of perfiles">
+             <td>{{ user.nombre }}</td>
+             <td>{{ user.apellidos }}</td>
+             <td>{{ user.email }}</td>
+             <td>{{ user.telefono }}</td>
+    </table>
+</div>

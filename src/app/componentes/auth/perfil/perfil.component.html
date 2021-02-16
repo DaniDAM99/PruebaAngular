@@ -4,7 +4,10 @@
         <div class="card-header"><h3 class="card-title ml-2">Perfil usuario</h3></div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
-                <img src='{{perfil.imgSrc}}'>
+                <img *ngIf="perfil.imgSrc != null; else img_user" style="width: 100px; margin: auto;" src='{{perfil.imgSrc}}'>
+                <ng-template #img_user>
+                    <img style="width: 100px; margin: auto;" src="/assets/images/user.png">
+                </ng-template>
             </li>
             <li class="list-group-item">
                 <div class="input-group input-group-sm">
@@ -103,9 +106,18 @@
         <button class="btn btn-danger m-1" (click)='eliminarUsuario()' [disabled]='inputBorrar != perfil.email'>Confirmar borrado</button>
         <button class="btn btn-outline-secondary" (click)='mostrarEliminar=!mostrarEliminar'>Cancelar</button>
     </div>
+    <div style="width: 70rem;" class="border rounded p-2 my-1">
+        <h5>FormGroup</h5>
+        <form [formGroup]='formImagen' (ngSubmit)='subirImagen()'>
+            <input type="file" formControlName='imagen' (change)='cambiaImagen($event)'>
+            <input class="btn btn-primary my-2" type="submit" value="Subir imagen de perfil">
+        </form>
+    </div>
 
-    <form [formGroup]='formImagen' (ngSubmit)='subirImagen()'>
-        <input type="file" formControlName='imagen' (change)='cambiaImagen($event)'>
-        <input type="submit" value="Subir imagen de perfil">
-    </form>
+    <div style="width: 70rem;" class="border rounded p-2 my-1">
+        <h5>Objeto File</h5>
+        <input type="file" (change)='tengoFoto($event)'>
+        <input type="button" class="btn btn-primary" (click)='subirFoto()' value="Subir imagen de perfil">
+    </div>
+
 </div>
