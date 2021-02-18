@@ -1,20 +1,50 @@
-<div class="container">
-    <h4 class="mb-4 mt-3">Usuarios</h4>
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>Mensaje</th>
-                <th>ID_Remitente</th>
-                <th>ID_Destinatario</th>
+<div class="container pt-5">
+    <div>
+        <h6>Mensajes Recibidos</h6>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Mensaje</th>
+                    <th>ID_Remitente</th>
+                    <th>ID_Destinatario</th>
 
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let mensaje of mensajes">
-                <td>{{ mensaje.mensaje }}</td>
-                <td>{{ mensaje.idRemitente }}</td>
-                <td>{{ mensaje.idDestinatario }}</td>
-            </tr>
-        </tbody>
-    </table>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let mensaje of mensajesRecibidos">
+                    <td>{{ mensaje.mensaje }}</td>
+                    <td>{{ mensaje.idRemitente }}</td>
+                    <td>{{ mensaje.idDestinatario }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="mt-5">
+        <h6>Mensajes Enviados</h6>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Mensaje</th>
+                    <th>ID_Remitente</th>
+                    <th>ID_Destinatario</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="pointer" *ngFor="let mensaje of mensajesEnviados" (click)="mensajeSeleccionado = mensaje; formEditar.patchValue(mensaje)">
+                    <td>{{ mensaje.mensaje }}</td>
+                    <td>{{ mensaje.idRemitente }}</td>
+                    <td>{{ mensaje.idDestinatario }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div *ngIf='mensajeSeleccionado'>
+            <form [formGroup]='formEditar' (submit)='editarMensaje()'>
+                <input type="text" class="form-control" formControlName='mensaje' placeholder="Mensaje">
+                <input type="submit" value="Editar mensaje" class="btn btn-primary mt-2">
+                <input type="button" value="Eliminar" class="btn btn-danger ml-2 mt-2" (click)='eliminarMensaje()'>
+            </form>
+        </div>
+    </div>
 </div>

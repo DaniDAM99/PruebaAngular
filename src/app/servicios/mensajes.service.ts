@@ -9,12 +9,20 @@ export class MensajesService {
 
   constructor(private http:HttpClient) { }
 
-  mostrarMensaje(): Observable<any> {
+  mostrarMensajeRecibidos(): Observable<any> {
     return this.http.get(url)
+  }
+
+  mostrarMensajeEnviados(): Observable<any> {
+    return this.http.get(url+"sent")
   }
 
   insertarMensaje(mensaje): Observable<any> {
     return this.http.post(url, mensaje)
+  }
+
+  editarMensaje(mensaje): Observable<any> {
+    return this.http.put(url, mensaje)
   }
 
   borrarMensaje(id): Observable<any> {
