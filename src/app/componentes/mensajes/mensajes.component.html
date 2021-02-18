@@ -1,0 +1,20 @@
+<div class="container">
+    <h4 class="mb-4 mt-3">Usuarios</h4>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Mensaje</th>
+                <th>ID_Remitente</th>
+                <th>ID_Destinatario</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let mensaje of mensajes">
+                <td>{{ mensaje.mensaje }}</td>
+                <td>{{ mensaje.idRemitente }}</td>
+                <td>{{ mensaje.idDestinatario }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

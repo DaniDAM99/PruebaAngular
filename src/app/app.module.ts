@@ -30,6 +30,7 @@ import { RegisterComponent } from './componentes/auth/register/register.componen
 import { PerfilComponent } from './componentes/auth/perfil/perfil.component';
 import { EnviarTokenInterceptor } from './auth/enviar-token.interceptor';
 import { ListarPerfilesComponent } from './componentes/listar-perfiles/listar-perfiles.component';
+import { MensajesComponent } from './componentes/mensajes/mensajes.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { ListarPerfilesComponent } from './componentes/listar-perfiles/listar-pe
     LoginComponent,
     RegisterComponent,
     PerfilComponent,
-    ListarPerfilesComponent
+    ListarPerfilesComponent,
+    MensajesComponent
   ],
   imports: [
     BrowserModule,

@@ -1,16 +1,68 @@
 <div class="container">
     <h4 class="mb-4 mt-3">Usuarios</h4>
-    <table class="table">
-        <tr>
-            <th>Nombre</th>
-            <th>Apellidos</th>
-            <th>Email</th>
-            <th>Teléfono</th>
-        </tr>
-        <tr *ngFor="let user of perfiles">
-             <td>{{ user.nombre }}</td>
-             <td>{{ user.apellidos }}</td>
-             <td>{{ user.email }}</td>
-             <td>{{ user.telefono }}</td>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="pointer"  *ngFor="let user of perfiles" (click)="usuarioSeleccionado = user; userSelect = true; formMensaje.patchValue({idDestinatario:user.id})">
+                <td>{{ user.nombre }}</td>
+                <td>{{ user.apellidos }}</td>
+            </tr>
+        </tbody>
     </table>
+
+    <div *ngIf='userSelect' class="card" style="width: 70rem; margin: 15px auto;">
+        <div class="card-header"><h3 class="card-title ml-2">Usuario seleccionado</h3></div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <div class="input-group input-group-sm">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" style="width: 80px;">Nombre:</span>
+                    </div>
+                    <input type="text" readonly class="form-control" value="{{ usuarioSeleccionado.nombre }}">
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="input-group input-group-sm">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" style="width: 80px;">Apellidos:</span>
+                    </div>
+                    <input type="text" readonly class="form-control" value="{{ usuarioSeleccionado.apellidos }}">
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="input-group input-group-sm">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" style="width: 80px;">Email:</span>
+                    </div>
+                    <input type="text" readonly class="form-control" value="{{ usuarioSeleccionado.email }}">
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="input-group input-group-sm">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" style="width: 80px;">Teléfono:</span>
+                    </div>
+                    <input type="text" readonly class="form-control" value="{{ usuarioSeleccionado.telefono }}">
+                </div>
+            </li>
+            <li class="list-group-item">
+                <input type="button" class="btn btn-outline-primary" (click)="userSelect = false" value="Ocultar">
+            </li>
+        </ul>
+
+        <div class="card">
+            <div class="card-body">
+                <form [formGroup]='formMensaje' (submit)='escribirMensaje();'>
+                    <input type="text" formControlName='mensaje' placeholder="Mensaje">
+                    <input type="submit" value="Enviar mensaje" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+
+    </div>
 </div>
