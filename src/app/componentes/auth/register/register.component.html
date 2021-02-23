@@ -50,28 +50,25 @@
 
         <input type="submit" class="btn btn-primary"  value="Registrar">
     </form>
-    <!--[disabled]="!formRegister.valid"
-        <div class="err_alert">
-        <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="alert alert-danger">
-            <p *ngIf="nombre.errors.required">El nombre es obligatorio</p>
-            <p *ngIf="nombre.errors.minlength">El nombre tiene que tener al menos 3 caracteres</p>
+    <div *ngIf="formRegister.invalid && formRegister.touched">
+        <div class="alert alert-danger">
+            <p>Nombre: {{formRegister.get('nombre').errors | json}}</p>
         </div>
-        <div *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)" class="alert alert-danger">
-            <p *ngIf="apellido.errors.required">El apellido es obligatorio</p>
+        <div class="alert alert-danger">
+            <p>Apellidos: {{formRegister.get('apellidos').errors | json}}</p>
         </div>
-        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
-            <p *ngIf="password.errors.required">La contraseña es obligatoria</p>
-            <p *ngIf="password.errors.minlength">La contraseña tiene que tener al menos 4 caracteres</p>
+        <div class="alert alert-danger">
+            <p>DNI: {{formRegister.get('dni').errors | json}}</p>
         </div>
-        <div *ngIf="email.invalid && email.touched" class="alert alert-danger">
-            <p *ngIf="email.errors.required">El email es obligatorio</p>
-            <p *ngIf="email.errors.email">El formato del email es inválido</p>
+        <div class="alert alert-danger">
+            <p>Teléfono: {{formRegister.get('telefono').errors | json}}</p>
         </div>
-        <div *ngIf="dni.invalid && dni.touched" class="alert alert-danger">
-            <p *ngIf="dni.errors.required">El DNI es obligatorio</p>
+        <div class="alert alert-danger">
+            <p>E-Mail: {{formRegister.get('email').errors | json}}</p>
         </div>
-        <div *ngIf="telefono.invalid && telefono.touched" class="alert alert-danger">
-            
-        </div>
-    </div>-->
+    </div>
+    
+    <div class="alert alert-success" *ngIf="formRegister.valid">
+        <p>Formulario correcto</p>
+    </div>
 </div>

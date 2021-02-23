@@ -4,15 +4,13 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'dni'
 })
 export class DniPipe implements PipeTransform {
-  posicion: number
-  letras: string="TRWAGMYFPDXBNJZSQVHLCKET";
-  letra: string = ""
+  
   transform(value: number, ...args: unknown[]): unknown {
-    if(value > 0 && value > 99999999) {
-        this.posicion = value % 23;
-        this.letra = this.letras.charAt(this.posicion);
-        return this.letra;
+    if (value < 99999999 && value>0){
+      const letras = "TRWAGMYFPDXBNJZSQVHLCKET"
+      return value + letras[value%23]
     }
+    else return null;
   }
 
 }

@@ -17,8 +17,8 @@ export class RegisterComponent implements OnInit {
     password:['', [Validators.required, Validators.minLength(4)]],
     password2:['', [Validators.required]],
     email:['', [Validators.required, Validators.email]],
-    telefono:[undefined, [telefonoValido()]],
-    dni:['', [Validators.required/*,dniValido()*/]],
+    telefono:[undefined, telefonoValido()],
+    dni:['', [Validators.required, dniValido()]],
   })
 
   constructor(private fb:FormBuilder, private servicioUsuario:UserService, private irHacia:Router) { }
