@@ -13,7 +13,7 @@
             <span class="input-group-text">Edad:</span>
         </div>
         <input class="form-control" type="number" name="" id="" [(ngModel)]="user.edad">
-        <button (click)="insertar()">Insertar</button>
+        <button class="btn btn-sm btn-primary"(click)="insertar()">Insertar</button>
     </div>
     <ul>
         <li class="list-group-item list-group-item-action pointer" *ngFor="let usu of users" (click)="mostrar(usu)">{{ usu.nombre }} {{ usu.apellido }} Edad: {{ usu.edad }}</li>

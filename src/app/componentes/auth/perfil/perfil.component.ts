@@ -30,6 +30,8 @@ export class PerfilComponent implements OnInit {
     imagen: ['', Validators.required]
   })
 
+  error = undefined
+
   ngOnInit(): void {
     this.cargarPerfil()
   }
@@ -41,7 +43,10 @@ export class PerfilComponent implements OnInit {
         this.perfil = respuesta
         this.formPerfil.patchValue(this.perfil)
       },
-      error => console.log(error)
+      error => {
+        console.log(error)
+        this.error = error;
+      }
     )
   }
 
@@ -62,7 +67,10 @@ export class PerfilComponent implements OnInit {
         this.servicioUsuario.logOut()
         this.irHacia.navigate(['/login'])
       },
-      error => console.log(error)
+      error => {
+        console.log(error)
+        this.error = error;
+      }
     )
   }
 
@@ -75,7 +83,10 @@ export class PerfilComponent implements OnInit {
         console.log(respuesta)
         this.cargarPerfil()
       },
-      error => console.log(error)
+      error => {
+        console.log(error)
+        this.error = error;
+      }
     )
   }
 
@@ -100,7 +111,10 @@ export class PerfilComponent implements OnInit {
         console.log(respuesta)
         this.cargarPerfil()
       },
-      error => console.log(error)
+      error => {
+        console.log(error)
+        this.error = error
+      }
     )
   }
 }

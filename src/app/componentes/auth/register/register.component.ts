@@ -21,6 +21,8 @@ export class RegisterComponent implements OnInit {
     dni:['', [Validators.required, dniValido()]],
   })
 
+  error = undefined
+
   constructor(private fb:FormBuilder, private servicioUsuario:UserService, private irHacia:Router) { }
 
   ngOnInit(): void {
@@ -37,7 +39,10 @@ export class RegisterComponent implements OnInit {
           this.servicioUsuario.guardarToken(respuesta)
           this.irHacia.navigate(['/perfil'])
         },
-        error => console.log(error)
+        error => {
+          console.log(error)
+          this.error = error
+        }
       )
     }
     else {

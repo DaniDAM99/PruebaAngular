@@ -1,4 +1,7 @@
 <div class="container mt-5">
+    <div *ngIf='error' class="alert alert-danger">
+        {{error.error.error}}
+    </div>
     <form [formGroup]="formRegister" (submit)="submit()">
         <div class="input-group mb-2">
             <div class="input-group-prepend" style="width: 170px;">
@@ -48,16 +51,10 @@
             <input type="tel" class="form-control" placeholder="Telefono" formControlName="telefono" [disabled]='formRegister.invalid'><br/>
         </div>
 
-        <input type="submit" class="btn btn-primary"  value="Registrar">
+        <input type="submit" class="btn btn-primary" [disabled]='formRegister.invalid' value="Registrar">
     </form>
 
     <div class="mt-3" *ngIf="formRegister.invalid && formRegister.touched">
-        <div class="alert alert-danger">
-            <p>Nombre: {{formRegister.get('nombre').errors | json}}</p>
-        </div>
-        <div class="alert alert-danger">
-            <p>Apellidos: {{formRegister.get('apellidos').errors | json}}</p>
-        </div>
         <div class="alert alert-danger">
             <p>DNI: {{formRegister.get('dni').errors | json}}</p>
         </div>

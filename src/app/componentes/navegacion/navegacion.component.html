@@ -1,11 +1,13 @@
-<nav class="navbar navbar-expand-sm navbar-light bg-secondary">
+
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <a class="navbar-brand" href="#"><img src="/assets/icons/logo_200.png" style="width: 75px; filter: brightness(0);"></a>
     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
         aria-expanded="false" aria-label="Toggle navigation"></button>
     <div class="collapse navbar-collapse" id="collapsibleNavId">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item">
-                <a class="nav-link" routerLinkActive='' routerLink = "/">Home<span class="sr-only">(current)</span></a>
+                <a class="nav-link" routerLink = "/">Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" routerLink = "/about">About</a>
@@ -26,17 +28,17 @@
                 <a class="nav-link" routerLink = "/formulario">Formulario</a>
             </li>
 
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  CRUDs BD
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+            
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">CRUDs BD</a>
+                <div class="dropdown-menu">
                     <a class="dropdown-item hover" routerLink = "/crud">CRUD Local</a>
                     <a class="dropdown-item" routerLink = "/crud_bd">CRUD BD</a>
                     <a class="dropdown-item" routerLink = "/moviles">CRUD Movil</a>
                 </div>
-              </div>
-
+            </li>
+            
             <li class="nav-item">
                 <a class="nav-link" routerLink = "/perfiles">
                     <i class="fa fa-users" aria-hidden="true"></i>
@@ -76,3 +78,10 @@
         </ul>
     </div>
 </nav>
+
+<script>
+    $('#navId a').click(e => {
+        e.preventDefault();
+        $(this).tab('show');
+    });
+</script>
