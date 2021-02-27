@@ -1,4 +1,8 @@
 <div class="container mt-5">
+
+    <div *ngIf='error' class="alert alert-danger" role="alert">
+        {{error.error.error}}
+    </div>
     <form [formGroup]="formRegister" (submit)="submit()">
         <div class="input-group mb-2">
             <div class="input-group-prepend" style="width: 170px;">

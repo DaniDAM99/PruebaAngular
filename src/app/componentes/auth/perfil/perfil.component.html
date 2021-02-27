@@ -56,6 +56,10 @@
         </ul>
     </div>
 
+    <div *ngIf='error' class="alert alert-danger" role="alert">
+        {{error.error.error}}
+    </div>
+    
     <div *ngIf='mostrarEditar' style="width: 70rem;" class="border rounded p-2">
         <form [formGroup]="formPerfil" (submit)="editarPerfil()">
             <div class="input-group mb-2">

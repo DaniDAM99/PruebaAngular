@@ -4,15 +4,15 @@
         <div class="input-group-prepend">
             <span class="input-group-text">Usuario</span>
         </div>
-        <input class="form-control" placeholder="Nombre" type="text" name="" id="" [(ngModel)]="user.nombre">
-        <input class="form-control" placeholder="Apellido" type="text" name="" id="" [(ngModel)]="user.apellido">
+        <input class="form-control" placeholder="Nombre" type="text" [(ngModel)]="user.nombre">
+        <input class="form-control" placeholder="Apellido" type="text" [(ngModel)]="user.apellido">
       
     </div>
     <div class="input-group m-3 px-5 input-group-sm">
         <div class="input-group-prepend">
             <span class="input-group-text">Edad:</span>
         </div>
-        <input class="form-control" type="number" name="" id="" [(ngModel)]="user.edad">
+        <input class="form-control" type="number" [(ngModel)]="user.edad">
         <button (click)="insertar()">Insertar</button>
     </div>
     <ul>

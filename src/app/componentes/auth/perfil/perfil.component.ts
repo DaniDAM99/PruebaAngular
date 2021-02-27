@@ -11,11 +11,13 @@ import { telefonoValido } from 'src/app/validaciones/validaciones';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
-  perfil: User
+  perfil: User = {}
   constructor(private fb:FormBuilder,private servicioUsuario: UserService, private irHacia:Router) { }
   mostrarEditar: boolean = false
   mostrarEliminar: boolean = false
   inputBorrar: string = ""
+
+  error = undefined
 
   formPerfil = this.fb.group({
     nombre:[''],
@@ -41,7 +43,10 @@ export class PerfilComponent implements OnInit {
         this.perfil = respuesta
         this.formPerfil.patchValue(this.perfil)
       },
-      error => console.log(error)
+      error  => {
+        console.log(error)
+        error = error
+      }
     )
   }
 
@@ -62,7 +67,10 @@ export class PerfilComponent implements OnInit {
         this.servicioUsuario.logOut()
         this.irHacia.navigate(['/login'])
       },
-      error => console.log(error)
+      error => {
+        console.log(error)
+        error = error
+      }
     )
   }
 
@@ -75,7 +83,10 @@ export class PerfilComponent implements OnInit {
         console.log(respuesta)
         this.cargarPerfil()
       },
-      error => console.log(error)
+      error => {
+        console.log(error)
+        error = error
+      }
     )
   }
 
@@ -100,7 +111,10 @@ export class PerfilComponent implements OnInit {
         console.log(respuesta)
         this.cargarPerfil()
       },
-      error => console.log(error)
+      error => {
+        console.log(error)
+        error = error
+      }
     )
   }
 }

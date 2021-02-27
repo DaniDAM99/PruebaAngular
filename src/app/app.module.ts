@@ -31,6 +31,8 @@ import { PerfilComponent } from './componentes/auth/perfil/perfil.component';
 import { EnviarTokenInterceptor } from './auth/enviar-token.interceptor';
 import { ListarPerfilesComponent } from './componentes/listar-perfiles/listar-perfiles.component';
 import { MensajesComponent } from './componentes/mensajes/mensajes.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,8 @@ import { MensajesComponent } from './componentes/mensajes/mensajes.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [{provide:LOCALE_ID, useValue:"es"}, {provide: HTTP_INTERCEPTORS, useClass:EnviarTokenInterceptor, multi:true}],
   bootstrap: [AppComponent]
