@@ -22,14 +22,11 @@
                 <a class="nav-link" routerLink = "/tuberia">Tuberia</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink = "/estructuras">Estructura de control</a>
+                <a class="nav-link" routerLink = "/estructuras">Estructura control</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" routerLink = "/formulario">Formulario</a>
             </li>
-
-
-            
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">CRUDs BD</a>
                 <div class="dropdown-menu">
@@ -39,6 +36,13 @@
                 </div>
             </li>
             
+            <li class="nav-item">
+                <a class="nav-link" routerLink = "/grafica">Gráficas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink = "/mapa">Mapa</a>
+            </li>
+
             <li class="nav-item">
                 <a class="nav-link" routerLink = "/perfiles">
                     <i class="fa fa-users" aria-hidden="true"></i>
@@ -78,10 +82,3 @@
         </ul>
     </div>
 </nav>
-
-<script>
-    $('#navId a').click(e => {
-        e.preventDefault();
-        $(this).tab('show');
-    });
-</script>

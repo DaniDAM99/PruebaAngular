@@ -15,6 +15,14 @@
         </tbody>
     </table>
 
+    <div *ngIf='error' class="alert alert-danger" role="alert">
+        {{error.error.error}}
+    </div>
+
+    <div *ngIf='success_alert' class="alert alert-success" role="alert">
+        {{error.error.error}}
+    </div>
+
     <div *ngIf='userSelect' class="card" style="width: 70rem; margin: 15px auto;">
         <div class="card-header"><h3 class="card-title ml-2">Usuario seleccionado</h3></div>
         <ul class="list-group list-group-flush">

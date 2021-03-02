@@ -1,5 +1,6 @@
 <div class="container mt-5">
-    <div *ngIf='error' class="alert alert-danger">
+    
+    <div *ngIf='error' class="alert alert-danger" role="alert">
         {{error.error.error}}
     </div>
     <form [formGroup]="formRegister" (submit)="submit()">
@@ -48,7 +49,7 @@
             <div class="input-group-prepend" style="width: 170px;">
                 <span class="input-group-text" style="width: 100%;">Teléfono:</span>
             </div>
-            <input type="tel" class="form-control" placeholder="Telefono" formControlName="telefono" [disabled]='formRegister.invalid'><br/>
+            <input type="tel" class="form-control" placeholder="Telefono" formControlName="telefono"><br/>
         </div>
 
         <input type="submit" class="btn btn-primary" [disabled]='formRegister.invalid' value="Registrar">

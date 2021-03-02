@@ -16,6 +16,10 @@ export class ListarPerfilesComponent implements OnInit {
   perfiles: User[] = []
   usuarioSeleccionado: User
   userSelect = false;
+  success_alert = false
+  
+  error: undefined
+  respuesta: undefined
 
   formMensaje = this.fb.group({
     idDestinatario: [''],
@@ -41,8 +45,14 @@ export class ListarPerfilesComponent implements OnInit {
     this.servicioMensaje.insertarMensaje(this.formMensaje.value).subscribe(
       respuesta => {
         console.log(respuesta)
+        this.respuesta = respuesta
+        this.success_alert = true;
+        setTimeout(() => (this.success_alert = false), 2500)
       },
-      error => console.log(error)
+      error => {
+        console.log(error)
+        this.error = error
+      }
     )
   }
 
